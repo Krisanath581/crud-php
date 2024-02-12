@@ -1,3 +1,18 @@
+<?php 
+include("../layout.php"); 
+include("../connection/connect.php"); 
+
+
+
+$sql = "SELECT * FROM users";
+$stmt = $conn->prepare($sql); //เรียกข้อมูลทั้งหมด
+$stmt->execute();
+
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +23,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
+
 <div class="container">
     <!-- Navbar -->
     <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
@@ -44,14 +60,15 @@
     </div>
   </div>
 
+  <?php foreach($result as $user) { ?>
   <!-- row1 -->
   <div class="row text-center">
   <h1 class="display-5 fw-bold text-body-emphasis text-center">โปรแกรม Remote</h1>
     <div class="col-sm-1 col-md-3 col-lg-3">
         <div class="card">
-  <img src="img/aeroadmin.png" class="card-img-top" alt="" width="100%" height="200">
+  <img src="../img/aeroadmin.png" class="card-img-top" alt="" width="100%" height="200">
   <div class="card-body">
-    <h5 class="card-title">AeroAdmin</h5>
+    <h5 class="card-title"><?=$user['fname'];?></h5>
     <p class="card-text"></p>
     <a href="Download/test.pdf " class="btn btn-primary">DOWNLOAD</a>
   </div>
@@ -59,7 +76,7 @@
     </div>
     <div class="col-sm-1 col-md-3 col-lg-3">
         <div class="card">
-  <img src="img/TeamViewer.png" class="card-img-top" alt="..." width="" height="">
+  <img src="../img/TeamViewer.png" class="card-img-top" alt="..." width="" height="">
   <div class="card-body">
     <h5 class="card-title">TeamViewer</h5>
     <p class="card-text"></p>
@@ -89,6 +106,7 @@
     </div>
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom my-4"></div>
   </div>
+  <?php } ?>
     
   <!-- row2 -->
   <div class="row text-center">
