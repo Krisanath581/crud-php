@@ -43,10 +43,19 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
       <td>
       <a href="form_edit_user.php?iduser=<?=$user['id'];?>"><button type="button" class="btn btn-primary">แก้ไข</button></a>
       <a href="form_change_password.php?iduser=<?=$user['id'];?>"><button type="button" class="btn btn-secondary">เปลี่ยนรหัสผ่าน</button></a>
-      <button type="button" class="btn btn-danger">ลบ</button>
+      <a href="services/delete_user.php?iduser=<?=$user['id'];?>"><button type="button" class="btn btn-danger">ลบ</button></a>
       </td>
     </tr>
     <?php } ?>
   </tbody>
 </table>
+<?php
+if(!$result) {
+  echo "<h3>ไม่มีข้อมูลผู้ใช้งาน</h3>";
+
+}
+?>
+
+
+
 </div>

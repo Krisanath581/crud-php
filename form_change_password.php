@@ -29,17 +29,17 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
   <div class="mb-3">
     <label for="password" class="form-label">รหัสผ่านเก่า</label>
-    <input type="password" class="form-control" name="password" id="password" placeholder="">
+    <input type="password" class="form-control" name="password" id="password">
   </div>
 
   <div class="mb-3">
     <label for="Newpassword1" class="form-label">รหัสผ่านใหม่</label>
-    <input type="password" class="form-control" name="password" id="Newpassword1" placeholder="">
+    <input type="password" class="form-control" name="Newpassword1" id="Newpassword1" placeholder="">
   </div>
 
   <div class="mb-3">
     <label for="Newpassword2" class="form-label">ยืนยันรหัสผ่านใหม่</label>
-    <input type="password" class="form-control" name="password" id="Newpassword2" placeholder="">
+    <input type="password" class="form-control" name="Newpassword2" id="Newpassword2" placeholder="">
   </div>
 
 
